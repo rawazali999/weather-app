@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+    font-family: 'Tilt_Neon';
+    src: url('../../public/TiltNeon-Regular.ttf');
+}
+
+* {
+    font-family: 'Tilt_Neon';
+}
+
+/* make scroll hidden */
+
+.scroll::-webkit-scrollbar {
+    display: none;
+}
