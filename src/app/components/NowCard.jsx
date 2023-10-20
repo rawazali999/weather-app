@@ -4,7 +4,7 @@ import Image from "next/image";
 export const NowCard = ({ location, weather }) => {
   if (location && weather) {
     return (
-      <div className=" text-white h-auto p-2 flex justify-around items-start">
+      <div className=" text-white h-auto  flex justify-around items-start">
         <div className="space-y-2 flex flex-col ">
           <h1 className="text-3xl">{location.name} </h1>
           <p className="text-md">{location.country}</p>

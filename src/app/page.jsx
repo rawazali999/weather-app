@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
-        `https://api.weatherapi.com/v1/forecast.json?key=d7bade734fc54553a8d10658230810&q=${search}&days=7&aqi=no&alerts=no`
+        `${process.env.BASE_URL}/forecast.json?key=${process.env.API_KEY}&q=${search}&days=7&aqi=no&alerts=no`
       );
       const data = await res.json();
       setData(data);
@@ -26,21 +26,21 @@ export default function Home() {
     <main
       className={`bg-gradient-to-b ${
         isDay == true ? "from-sky-400 to-sky-200" : " from-blue-900 to-sky-900 "
-      }  w-screen h-full md:h-screen  flex justify-center items-center py-8
+      }  w-screen h-full md:h-screen  grid place-content-center py-8
       `}
     >
-      <div className="space-y-4">
+      <div className="space-y-4  flex flex-col items-center  ">
         <input
-          className="w-full mx-auto  rounded-md p-2 border-sky-400 focus:outline-sky-400"
+          className="w-2/3  rounded-md p-2 border-2 outline-sky-900"
           placeholder="Search for a city"
           type="text"
           onChange={(e) => setSearch(e.target.value)}
         />
         <section
-          className={`rounded-lg shadow-2xl p-4 grid grid-cols-1 sm:grid-cols-2 ${
+          className={`rounded-xl  shadow-2xl p-2 grid grid-cols-1 sm:grid-cols-2 ${
             isDay == true
               ? "from-sky-200 to-sky-400"
-              : " from-blue-900 to-sky-900 "
+              : " from-blue-800 to-sky-900 "
           } `}
         >
           <div className="flex flex-col justify-between ">

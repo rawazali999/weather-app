@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function TodayForecast({ forecast }) {
   return (
-    <div className="rounded-lg shadow-lg p-2 bg-sky-600 m-1 text-white">
+    <div className="rounded-lg shadow-lg  bg-sky-600 m-1 text-white">
       <h1 className="text-center text-md">TODAY&apos;S FORECAST</h1>
       <div className="scroll  m-2 h-32 w-80 flex overflow-x-auto ">
         {forecast?.forecastday[0].hour.map((day) => {
