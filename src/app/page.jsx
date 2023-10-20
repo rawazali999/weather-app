@@ -4,6 +4,7 @@ import { useState } from "react";
 import { NowCard } from "./components/NowCard";
 import { WeekForecast } from "./components/WeekForecast";
 import TodayForecast from "./components/TodayForecast";
+import { getWeather } from "../../lib/getWeather";
 
 export default function Home() {
   const [data, setData] = useState({});
@@ -12,15 +13,11 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        `${process.env.BASE_URL}/forecast.json?key=${process.env.API_KEY}&q=${search}&days=7&aqi=no&alerts=no`
-      );
-      const data = await res.json();
-      setData(data);
+      setData(await getWeather(search));
       data?.current?.is_day == 1 ? setIsDay(true) : setIsDay(false);
     };
     fetchData();
-  }, [search]);
+  }, [search, data]);
 
   return (
     <main
